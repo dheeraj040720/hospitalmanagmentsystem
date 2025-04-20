@@ -1,0 +1,30 @@
+<p>doctordiagnose works!</p>
+
+ 
+<form #updateForm="ngForm" (ngSubmit)="updatePatient()">
+
+
+ 
+
+<h2>Patient Details</h2>
+
+
+ <!-- <input type="text" placeholder="Enter Patient ID" name="patientID"  [value]="patientObject.patientID" [(ngModel)]="patientObject.patientID" required>
+<input type="text" placeholder="Enter Patient Name" name="patientname" [(ngModel)]="patientObject.patientname"   [value]="patientObject.patientname"  required> 
+ <input type="text" placeholder="Enter Patient Age" name="age" [(ngModel)]="patientObject.age"   [value]="patientObject.age"  required>        
+
+ <input type="text" placeholder="Enter Patient Blood Group" name="bloodGroup" [(ngModel)]="patientObject.bloodGroup"  [value]="patientObject.bloodGroup"  required> -->
+ <div *ngIf="patientData">
+<p> patientID: {{patientData.patientID}}  </p>
+<p> patient name: {{patientData.patientname}}</p>
+<p> patient age: {{patientData.age}}</p>
+<p> patient blood group: {{patientData.bloodGroup}}</p>
+</div>
+<div *ngIf="patientObject">
+<input type="text" placeholder="Enter Diagonise" name="diagonise" [(ngModel)]="patientObject.patientDoasge" required>
+<input type="text" placeholder="Enter Patient dosage" name="patientPrescription" [(ngModel)]="patientObject.patientPrescription" required>
+<input type="text" placeholder="Enter Doctor fees" name="doctorFees" [(ngModel)]="patientObject.doctorFees" required>
+<input type="submit" value="Update Patient">
+</div>
+</form>
+

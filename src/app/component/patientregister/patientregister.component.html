@@ -1,0 +1,20 @@
+<p>patientregister works!</p>
+
+
+<form #patientregisterForm="ngForm" (ngSubmit)="registerPatient()">
+
+
+
+    PatientName:<input type="text" name="patientname" id="patientname"  [(ngModel)]="patient.patientname"  ><br><br>
+    PatientAge:<input type="text" name="patientage" id="patientage"  [(ngModel)]="patient.age"><br><br>
+    PatientGender:<input type="text" name="patientgender" id="patientgender"  [(ngModel)]="patient.patientgender"><br><br>
+    PatientAddress:<input type="text" name="patientaddress" id="patientaddress"  [(ngModel)]="patient.patientaddress"><br><br>
+    PatientPhone:<input type="text" name="patientphone" id="patientphone"  [(ngModel)]="patient.patientphoneNum"><br><br>
+    PatientEmail:<input type="text" name="patientemail" id="patientemail"  [(ngModel)]="patient.patientemail"><br><br>
+    PatientBloodGroup:<input type="text" name="patientbloodgroup" id="patientbloodgroup" [(ngModel)]="patient.bloodGroup"> <br><br>
+    PatientAppointmentDate:<input type="date" name="patientappointmentdate" id="patientappointmentdate"  [(ngModel)]="patient.appointmentDate"><br><br>
+    
+    <input type="submit" class="btn btn-primary" value="Submit" id="submit"><br><br>
+    <input type="reset" value="Reset" id="reset"><br><br>
+    
+</form>

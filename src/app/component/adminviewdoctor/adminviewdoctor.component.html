@@ -1,0 +1,22 @@
+<p>adminviewdoctor works!</p>
+<table>
+    <tr>
+<th>doctorID</th>
+<th>doctorName</th>
+<th>doctorPhoneNumber</th>
+<th>doctorDepartment</th>
+<th>doctorSpecialization</th>
+<th>doctorEmail</th>
+
+</tr>
+
+<tr *ngFor="let doctor of doctorList">
+<td>{{doctor.doctorID}}</td>
+<td>{{doctor.doctorName}}</td>
+<td>{{doctor.doctorPhoneNumber}}</td>
+<td>{{doctor.doctorDepartment}}</td>
+<td>{{doctor.doctorSpecialization}}</td>
+<td>{{doctor.doctorEmail}}</td>
+</tr>
+
+</table>

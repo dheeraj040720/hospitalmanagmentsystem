@@ -1,0 +1,13 @@
+<p>doctorlogin works!</p>
+
+<form #doctorloginForm="ngForm" (ngSubmit)="loginDoctor()">
+
+
+DoctorUsername: <input type="text" name="DoctorUsername"  [(ngModel)]="doctor.username"><br>
+DoctorPassword: <input type="password"   [(ngModel)]="doctor.password"  name="DoctorPassword"><br>
+
+
+<button type="submit">Login</button>
+
+</form>
+

@@ -1,0 +1,22 @@
+<p>doctordetails works!</p>
+
+
+<form #doctordetailsForm="ngForm" (ngSubmit)="registerDoctor()">
+
+    <!-- Doctor id:<input type="text" name="doctorid" id="doctorid"  [(ngModel)]="doctor.doctorid"  ><br><br>  -->
+    Doctor name:<input type="text" name="doctorname" id="doctorname"  [(ngModel)]="doctor.doctorName"><br><br>
+    Doctor specialization:<input type="text" name="doctorspecialization" id="doctorspecialization"  [(ngModel)]="doctor.doctorSpecialization"><br><br>
+    Doctor phone number:<input type="text" name="doctorphonenumber" id="doctorphonenumber"  [(ngModel)]="doctor.doctorPhoneNumber"><br><br>
+    Doctor email:<input type="text" name="doctoremail" id="doctoremail"  [(ngModel)]="doctor.doctorEmail"><br><br>
+    Doctor department:<input type="text" name="doctordepartment" id="doctordepartment"  [(ngModel)]="doctor.doctorDepartment"><br><br>
+    Doctor DoctorUsername:<input type="text" name="doctorusername" id="doctorusername"  [(ngModel)]="doctor.username"><br><br>
+    Doctor DoctorPassword:<input type="password" name="doctorpassword" id="doctorpassword"  [(ngModel)]="doctor.password"><br><br>
+
+
+   submit <input type="submit" class="btn btn-primary" value="Submit" id="submit"><br><br>
+    <input type="reset" value="Reset" id="reset"><br><br>
+
+
+
+
+</form>

@@ -1,0 +1,34 @@
+<p>adminviewpatient works!</p>
+<table>
+
+<tr>
+
+<th>PatientID</th>
+<th>Patient Name</th>
+<th>Patient Age</th>
+<th>Patient Gender</th>
+<th>Patient Phone</th>
+<th>Patient Email</th>
+<th>patientaddress</th>
+<th>PatientBloodGroup</th>
+<th>PatientAppointmentDate </th>
+</tr>
+
+
+<tr *ngFor="let patient of patientList"> 
+<td>{{patient.patientID}}</td>
+<td>{{patient.patientname}}</td>
+<td>{{patient.age}}</td>
+<td>{{patient.patientgender}}</td>
+<td>{{patient.patientphoneNum}}</td>
+
+<td>{{patient.patientemail}}"</td>
+<td>{{patient.patientaddress}}</td>
+<td>{{patient.bloodGroup}}</td>
+
+<td>{{patient.appointmentDate}}</td>
+<td>{{patient.patientPrescription}}</td>
+<td>  {{patient.doctorFees}}  </td>
+<td> {{patient.patientDoasge}} </td>
+</tr>
+</table>

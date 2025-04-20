@@ -1,0 +1,54 @@
+ <p>doctorview works!</p>
+
+<h1>Welcome Doctor </h1> 
+
+
+
+<h2>Patient Details</h2>
+
+<table border="1" cellspacing="0" cellpadding="5">
+    <tr>
+        <th>Patient ID</th>
+        <th>Patient Name</th>
+        <th>Patient Age</th>
+        <th>Patient BLOOD TYPE</th>
+
+        <th>Action</th>
+        
+        </tr>
+        <tr *ngFor="let patientData of patientList">
+
+        <td>{{patientData.patientID}}</td>
+        <td>{{patientData.patientname}}</td>    
+        <td>{{patientData.age}}</td>
+        <td>{{patientData.bloodGroup}}</td> 
+
+         <td>
+            <button (click)="viewPatientDetails(patientData.patientID)">View Details</button>
+            <button (click)="updatePatient(patientData.patientID)">Diagonise</button>
+            <button (click)="deletePatient(patientData.patientID)">Delete</button>
+
+        </td> 
+
+
+
+
+        </tr>
+</table> 
+
+
+
+<div *ngIf="patientData">
+    <h2>Patient Details</h2>
+    <p> Patient ID: {{patientData.patientID}}</p>
+    <p> Patient Name: {{patientData.patientname}}</p>
+    <p> Patient Age: {{patientData.age}}</p>
+    <p> Patient Blood Group: {{patientData.bloodGroup}}</p>
+    <p> Patient 
+
+ 
+
+
+
+
+</div>
