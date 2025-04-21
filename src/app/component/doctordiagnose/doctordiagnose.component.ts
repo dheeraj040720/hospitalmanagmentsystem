@@ -15,7 +15,7 @@ export class DoctordiagnoseComponent  implements OnInit{
 constructor(private router:Router,private activateRoute:ActivatedRoute,private patientservice:PatientService) { }
 sblock: boolean = false;
 patientId:any;
-patientData= new patient();
+patientData: any
 patientObject:any;
 patientList:any;
  ngOnInit(): void {

@@ -1,13 +1,50 @@
-<p>doctorlogin works!</p>
-
-<form #doctorloginForm="ngForm" (ngSubmit)="loginDoctor()">
-
-
-DoctorUsername: <input type="text" name="DoctorUsername"  [(ngModel)]="doctor.username"><br>
-DoctorPassword: <input type="password"   [(ngModel)]="doctor.password"  name="DoctorPassword"><br>
-
-
-<button type="submit">Login</button>
-
-</form>
-
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <img src="assets/images/hospital.jpg" alt="Hospital">
+    <a class="navbar-brand" routerLink="/"> <b>EDUBRIDGE HOSPITALS</b></a>
+   
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto"></ul>
+  
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card p-4 shadow">
+          <div class="text-center mb-3">
+            <h1>Login As Patient</h1>
+            <h6>Please enter your Username & Password</h6>
+          </div>
+  
+          <form #doctorloginForm="ngForm" (ngSubmit)="loginDoctor()">
+            <div class="mb-3">
+              <label for="username" class="form-label"><h4>Dcotor Username</h4></label>
+              <input type="text" id="username" name="username" [(ngModel)]="doctor.username"
+                class="form-control" placeholder="Username" required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="password" class="form-label"><h4>Password</h4></label>
+              <input type="password" id="password" name="password" [(ngModel)]="doctor.password"
+                class="form-control" placeholder="Password" required>
+            </div>
+  
+            <div class="d-grid gap-2 d-md-block">
+              <button class="btn btn-success me-2" type="submit">Login</button>
+              <button class="btn btn-warning" type="button" routerLink="/home">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

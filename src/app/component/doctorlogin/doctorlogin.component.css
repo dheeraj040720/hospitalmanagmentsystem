@@ -1,0 +1,64 @@
+:host {
+    display: block;
+    background-image: url('/src/assets/images/hospital.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+  
+  /* Navbar */
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  /* Login Card */
+  .card {
+    border: none;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background: rgb(158, 219, 219);
+    color: navy;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Text inside card */
+  .card h1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card h6 {
+    font-weight: normal;
+    color: #333;
+  }
+  
+  /* Input fields */
+  .form-control {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Buttons */
+  .btn-success,
+  .btn-warning {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  
+  .btn-warning {
+    color: white;
+  }
+  
+  .btn-success:hover,
+  .btn-warning:hover {
+    opacity: 0.9;
+    transition: 0.3s ease-in-out;
+  }

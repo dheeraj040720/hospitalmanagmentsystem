@@ -1,0 +1,7 @@
+.bg-image {
+    background-image: url('https://images.pexels.com/photos/3279209/pexels-photo-3279209.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }

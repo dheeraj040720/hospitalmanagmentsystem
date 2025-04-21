@@ -1,13 +1,30 @@
-<p>welcome works!</p>
-<h1>Hospitalmanagmentsystem</h1>
-<a routerLink="loginurl">Login</a>
-<a routerLink="registerurl">Register</a>
-<a routerLink="doctordetailsurl">Doctor Details</a>
-<a routerLink="viewpatienturl"> PatientDetails</a>
-<br><br>
-<a routerLink="adminviewdoctorurl">AdminViewDoctor</a>
+<div class="bg-image">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/"> <b>EDUBRIDGE HOSPITALS</b></a>
 
-<br><br>
-<a routerLink="doctorviewurl">dOCTOR VIEW</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<a routerLink="doctorlogin">dOCTOR Login</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- Navigation items can go here -->
+      </ul>
+
+      <div>
+        <button style="margin: 5px;" class="btn btn-danger">
+          <a style="color:white;" routerLink="registerurl">Login as Admin</a>
+        </button>
+
+        <button style="margin: 5px;" class="btn btn-danger">
+          <a style="color:white;" routerLink="doctorlogin">Login as Doctor</a>
+        </button>
+
+        <button style="margin: 5px;" class="btn btn-danger">
+          <a style="color:white;" routerLink="registerurl">Login as Patient</a>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>

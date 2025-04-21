@@ -13,7 +13,7 @@ export class DoctorviewComponent implements OnInit {
 
   
   sblock: boolean = false;
-  patientData = new patient(); 
+  patientData:any; 
   constructor(private patientService:PatientService , private router:Router)  { }
   patientList:any;
   ngOnInit(): void {

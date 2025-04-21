@@ -60,16 +60,20 @@ export class PatientService {
 
 
 
+getPatientById(patientId:any)
+{
+  return this.httpClient.get(`${this.url}/${patientId}`);
+}
 
 
-      getPatientById(patientID:any):Observable<patient>{
+       /*getPatientById(patientID:any):Observable<patient>{
         return from(
           fetch(`${this.url}/${patientID}`).then(res=>(
           this.handleResponse(res))
         
         )
         );
-      }
+      }*/
 
       deletePatient(patientID:number):Observable<any>{
 
