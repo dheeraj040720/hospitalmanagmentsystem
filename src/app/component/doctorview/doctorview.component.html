@@ -16,7 +16,7 @@
         <th>Action</th>
         
         </tr>
-        <tr *ngFor="let patientData of patientList">
+        <tr *ngFor="let patientData of patientList | paginate:{itemsPerPage:count,currentPage:p}">
 
         <td>{{patientData.patientID}}</td>
         <td>{{patientData.patientname}}</td>    
@@ -38,13 +38,23 @@
 
 
 
+<div class="text-right">
+
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+</div>
+
+
+
+
 <div *ngIf="patientData">
     <h2>Patient Details</h2>
     <p> Patient ID: {{patientData.patientID}}</p>
     <p> Patient Name: {{patientData.patientname}}</p>
     <p> Patient Age: {{patientData.age}}</p>
     <p> Patient Blood Group: {{patientData.bloodGroup}}</p>
-    <p> Patient 
+    <p> Patient Appointment Date: {{patientData.appointmentDate}}</p>
+    
 
  
 

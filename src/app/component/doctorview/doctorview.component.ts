@@ -73,5 +73,10 @@ updatePatient(patientId: any) {
 
 
 
+p:number=1;
+count:number=5;
+
+
+
 
 }

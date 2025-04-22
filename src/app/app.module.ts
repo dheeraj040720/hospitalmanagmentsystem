@@ -16,6 +16,8 @@ import { DoctordiagnoseComponent } from './component/doctordiagnose/doctordiagno
 import { CommonModule } from '@angular/common';
 import { DoctorloginComponent } from './component/doctorlogin/doctorlogin.component';
 import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -29,16 +31,17 @@ import { AdminloginComponent } from './component/adminlogin/adminlogin.component
     DoctorviewComponent,
     DoctordiagnoseComponent,
     DoctorloginComponent,
-    AdminloginComponent
+    AdminloginComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    NgxPaginationModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

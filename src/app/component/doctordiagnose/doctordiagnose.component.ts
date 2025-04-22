@@ -49,7 +49,7 @@ viewPatientDetails(patientId: any) {
         if(response!=null)  {
         this.sblock = true;
       this.patientData = response;
-      console.log(this.patientData);
+      //console.log( "patientData"+ this.patientData);
         }
       }
     )

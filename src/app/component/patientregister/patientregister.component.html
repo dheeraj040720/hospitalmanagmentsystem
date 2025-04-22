@@ -1,20 +1,142 @@
-<p>patientregister works!</p>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDUBRIDGE Hospitals - Patient Registration</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="Untitled-2.css"> -->
+  
+</head>
 
-<form #patientregisterForm="ngForm" (ngSubmit)="registerPatient()">
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"> <b>EDUBRIDGE HOSPITALS</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto"></ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
 
-
-    PatientName:<input type="text" name="patientname" id="patientname"  [(ngModel)]="patient.patientname"  ><br><br>
-    PatientAge:<input type="text" name="patientage" id="patientage"  [(ngModel)]="patient.age"><br><br>
-    PatientGender:<input type="text" name="patientgender" id="patientgender"  [(ngModel)]="patient.patientgender"><br><br>
-    PatientAddress:<input type="text" name="patientaddress" id="patientaddress"  [(ngModel)]="patient.patientaddress"><br><br>
-    PatientPhone:<input type="text" name="patientphone" id="patientphone"  [(ngModel)]="patient.patientphoneNum"><br><br>
-    PatientEmail:<input type="text" name="patientemail" id="patientemail"  [(ngModel)]="patient.patientemail"><br><br>
-    PatientBloodGroup:<input type="text" name="patientbloodgroup" id="patientbloodgroup" [(ngModel)]="patient.bloodGroup"> <br><br>
-    PatientAppointmentDate:<input type="date" name="patientappointmentdate" id="patientappointmentdate"  [(ngModel)]="patient.appointmentDate"><br><br>
-    
-    <input type="submit" class="btn btn-primary" value="Submit" id="submit"><br><br>
-    <input type="reset" value="Reset" id="reset"><br><br>
-    
-</form>
+  <div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-3 py-4">
+      <div class="card-body">
+        <h5 class="card-title mb-3">Patient Registration</h5>
+  
+        <form #patientregisterForm="ngForm" (ngSubmit)="registerPatient()">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="patientname"
+              id="patientname"
+              placeholder="Patient Name"
+              [(ngModel)]="patient.patientname"
+            />
+          </div>
+  
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="patientage"
+              id="patientage"
+              placeholder="Patient Age"
+              [(ngModel)]="patient.age"
+            />
+          </div>
+  
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="patientgender"
+              id="patientgender"
+              placeholder="Patient Gender"
+              [(ngModel)]="patient.patientgender"
+            />
+          </div>
+  
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="patientaddress"
+              id="patientaddress"
+              placeholder="Patient Address"
+              [(ngModel)]="patient.patientaddress"
+            />
+          </div>
+  
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="patientphone"
+              id="patientphone"
+              placeholder="Patient Phone"
+              [(ngModel)]="patient.patientphoneNum"
+            />
+          </div>
+  
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="patientemail"
+              id="patientemail"
+              placeholder="Patient Email"
+              [(ngModel)]="patient.patientemail"
+            />
+          </div>
+  
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="patientbloodgroup"
+              id="patientbloodgroup"
+              placeholder="Patient Blood Group"
+              [(ngModel)]="patient.bloodGroup"
+            />
+          </div>
+  
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control"
+              name="patientappointmentdate"
+              id="patientappointmentdate"
+                placeholder="Patient Appointment Date"
+              [(ngModel)]="patient.appointmentDate"
+            />
+          </div>
+  
+          <div class="d-flex justify-content-between mt-3">
+            <input
+              type="submit"
+              class="btn btn-primary confirm-button"
+              value="Submit"
+              id="submit"
+            />
+            <input
+              type="reset"
+              class="btn btn-secondary"
+              value="Reset"
+              id="reset"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
