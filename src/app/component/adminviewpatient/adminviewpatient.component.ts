@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { patient } from '../../../model/patient';
 import { PatientService } from '../../services/patient.service';
 import { Router } from '@angular/router';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-adminviewpatient',
@@ -12,10 +14,12 @@ import { Router } from '@angular/router';
 export class AdminviewpatientComponent implements OnInit {
 
   sblock: boolean = false;
-  patientData = new patient(); 
+  //patientData = new patient();
+  patientData: any; 
   constructor(private patientService:PatientService , private router:Router)  { }
  patientList:any;
-
+ patientId:any;
+  patientObject : any;
 
 
 
@@ -51,9 +55,46 @@ export class AdminviewpatientComponent implements OnInit {
     );
   }
 
-
+  deletePatient(patientId: any) {
+    this.patientService.deletePatient(patientId).subscribe(
+      (response: any) => {
+        this.router.navigate(['viewpatienturl']);
+        console.log('Patient deleted successfully:', response);
+        // Optionally, refresh the patient list or navigate to another page
+        
+      } );
+    }
+    
  
 
+
+    
+updatePatient()
+{
+this.patientService.updatePatientById(this.patientId,this.patientObject).subscribe((response:any)=>{
+  console.log(response);
+  alert("Patient Updated Successfully");
+  this.router.navigate(['doctorviewurl']);
+
 }
+
+);
+}
+
+
+
+
+
+
+
+
+
+
+  
+}
+
+
+
+
 
 

@@ -24,9 +24,12 @@
         <td>{{patientData.bloodGroup}}</td> 
 
          <td>
-            <button (click)="viewPatientDetails(patientData.patientID)">View Details</button>
+            <button (click)="viewPatientDetails(patientData.patientID)" >View Details</button>
             <button (click)="updatePatient(patientData.patientID)">Diagonise</button>
             <button (click)="deletePatient(patientData.patientID)">Delete</button>
+            <button class="btn btn-success mt-3" (click)="exportToPDF()" *ngIf="sblock" >
+                Export to PDF
+              </button>
 
         </td> 
 

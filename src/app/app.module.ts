@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { DoctorloginComponent } from './component/doctorlogin/doctorlogin.component';
 import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AdminchoosingpageComponent } from './component/adminchoosingpage/adminchoosingpage.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DoctordiagnoseComponent,
     DoctorloginComponent,
     AdminloginComponent,
+    AdminchoosingpageComponent,
    
   ],
   imports: [

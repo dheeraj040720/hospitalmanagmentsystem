@@ -10,6 +10,7 @@ import { DoctordiagnoseComponent } from './component/doctordiagnose/doctordiagno
 import { DoctorviewComponent } from './component/doctorview/doctorview.component';
 import { DoctorloginComponent } from './component/doctorlogin/doctorlogin.component';
 import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
+import { AdminchoosingpageComponent } from './component/adminchoosingpage/adminchoosingpage.component';
 
 const routes: Routes = [{path:"",component:WelcomeComponent},
                         {path:"loginurl",component:LoginComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [{path:"",component:WelcomeComponent},
                         {path:"diagnoisepatient/:patientId",component:DoctordiagnoseComponent},
                         {path:"doctorlogin",component:DoctorloginComponent},
                         {path:"adminLogin",component:AdminloginComponent},
+                        {path:"adminchoosingurl",component:AdminchoosingpageComponent},
 ];
 
 

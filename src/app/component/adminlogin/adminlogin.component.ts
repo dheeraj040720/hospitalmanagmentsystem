@@ -19,7 +19,7 @@ onSubmit() {
 
   if (this.username === adminUsername && this.password === adminPassword) {
     alert('Login successful!');
-    this.router.navigate(['/viewpatienturl']); // Redirect to admin dashboard
+    this.router.navigate(['/adminchoosingurl']); // Redirect to admin dashboard
   } else {
     alert('Invalid username or password');
   }

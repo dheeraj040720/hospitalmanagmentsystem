@@ -38,7 +38,7 @@
       <h3 class="mb-4 text-primary text-center">Patient Details</h3>
     
       <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped custom-table">
+        <table class="table table-bordered table-hover table-striped custom-table"  id="patientDetailsTable">
           <thead class="thead-dark">
             <tr>
               <th>Patient ID</th>
@@ -53,10 +53,12 @@
               <th>Prescription</th>
               <th>Doctor Fees</th>
               <th>Dosage</th>
+              <th>Actions</th>
+              <th>exportToPDF</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let patient of patientList">
+            <tr *ngFor="let patient of patientList"  >
               <td>{{ patient.patientID }}</td>
               <td>{{ patient.patientname }}</td>
               <td>{{ patient.age }}</td>
@@ -69,8 +71,20 @@
               <td>{{ patient.patientPrescription }}</td>
               <td>{{ patient.doctorFees }}</td>
               <td>{{ patient.patientDoasge }}</td>
+
+              <td>
+
+                <!-- <button (click)="updatePatient(patientData.patientID)">Update</button> -->
+                <button (click)="deletePatient(patient.patientID)">Delete</button>
+    
+            </td> 
+         
+
             </tr>
           </tbody>
         </table>
       </div>
+
+ 
+
     </div>
