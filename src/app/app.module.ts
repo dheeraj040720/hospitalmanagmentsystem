@@ -18,6 +18,7 @@ import { DoctorloginComponent } from './component/doctorlogin/doctorlogin.compon
 import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminchoosingpageComponent } from './component/adminchoosingpage/adminchoosingpage.component';
+import { DoctoradmineditpageComponent } from './component/doctoradmineditpage/doctoradmineditpage.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AdminchoosingpageComponent } from './component/adminchoosingpage/adminc
     DoctorloginComponent,
     AdminloginComponent,
     AdminchoosingpageComponent,
+    DoctoradmineditpageComponent,
    
   ],
   imports: [

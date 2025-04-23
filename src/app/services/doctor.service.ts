@@ -76,6 +76,28 @@ export class DoctorService {
           
         }
 
+          updateDoctorById(doctorID:any,doctorobject:any):Observable<any>{
+            return from(
+              fetch(`${this.url}/${doctorID}`,{
+                method:'PUT',
+                headers:{ 'Content-Type':'application/json'},
+                body:JSON.stringify(doctorobject)
+            
+              }).then((res:Response)=>this.handleResponse(res))
+            );
+               }
+            
 
-  }
+            deleteDoctor(doctorID:number):Observable<any>{
+    
+              return from(
+                fetch(`${this.url}/getdoctorafterdelete/${doctorID}`,{
+                  method:'DELETE',
+              
+                }).then((res:Response)=>this.handleResponse(res))
+                  
 
+              );
+  
+        }
+      }

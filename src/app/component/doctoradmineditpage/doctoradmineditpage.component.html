@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>EDUBRIDGE Hospitals</title>
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"> <b> EDUBRIDGE HOSPITALS </b></a>
+    <div class="carousel-caption">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          </ul>
+        
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    
+    </nav>
+  
+  
+    <div class="container mt-5 mb-5 d-flex justify-content-center">
+      <div class="card px-3 py-4">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Doctor Registration</h5>
+    
+          <form #doctordetailsForm="ngForm" (ngSubmit)="updateDoctor()">
+    
+            <div *ngIf="doctorObject">
+            <div class="form-group">
+                
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Doctor Name"
+                name="doctorname"
+                id="doctorname"
+                [(ngModel)]="doctorObject.doctorName"
+              />
+            </div>
+    
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Specialization"
+                name="doctorspecialization"
+                id="doctorspecialization"
+                [(ngModel)]="doctorObject.doctorSpecialization"
+              />
+            </div>
+    
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone Number"
+                name="doctorphonenumber"
+                id="doctorphonenumber"
+                [(ngModel)]="doctorObject.doctorPhoneNumber"
+              />
+            </div>
+    
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                name="doctoremail"
+                id="doctoremail"
+                [(ngModel)]="doctorObject.doctorEmail"
+              />
+            </div>
+    
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Department"
+                name="doctordepartment"
+                id="doctordepartment"
+                [(ngModel)]="doctorObject.doctorDepartment"
+              />
+            </div>
+    
+           
+    
+    
+            <div class="d-flex justify-content-between mt-3">
+              <input
+                type="submit"
+                class="btn btn-primary confirm-button"
+                value="Submit"
+                id="submit"
+              />
+              <input
+                type="reset"
+                class="btn btn-secondary"
+                value="Reset"
+                id="reset"
+              />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>

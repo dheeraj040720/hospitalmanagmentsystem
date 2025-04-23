@@ -51,4 +51,32 @@ export class AdminviewdoctorComponent implements OnInit {
   }
 
 
+
+
+  deleteDoctor(doctorID:any) {
+    this.doctorService.deleteDoctor(doctorID).subscribe(
+
+      (response: any) => {
+        console.log(response);
+        alert("Doctor Deleted Successfully");
+        this.router.navigate(['adminviewdoctor']);
+      },
+      (error: any) => {
+        console.error('Error deleting doctor:', error);
+      }
+    );
+
+
+}
+
+updateDoctor(doctorId: any) {
+  this.router.navigate(['admineditdoctor', doctorId]);
+  console.log(doctorId);
+ 
+  console.log("update doctor called");
+
+}
+
+
+
 }
