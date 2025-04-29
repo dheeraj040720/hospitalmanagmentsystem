@@ -12,6 +12,10 @@ import { DoctorloginComponent } from './component/doctorlogin/doctorlogin.compon
 import { AdminloginComponent } from './component/adminlogin/adminlogin.component';
 import { AdminchoosingpageComponent } from './component/adminchoosingpage/adminchoosingpage.component';
 import { DoctoradmineditpageComponent } from './component/doctoradmineditpage/doctoradmineditpage.component';
+import { PatientChoosingDoctorComponent } from './component/patient-choosing-doctor/patient-choosing-doctor.component';
+import { PatientloginComponent } from './component/patientlogin/patientlogin.component';
+import { PatientDetailsByIdComponent } from './component/patient-details-by-id/patient-details-by-id.component';
+import { PatientChoosingComponent } from './component/patient-choosing/patient-choosing.component';
 
 const routes: Routes = [{path:"",component:WelcomeComponent},
                         {path:"loginurl",component:LoginComponent},
@@ -26,6 +30,10 @@ const routes: Routes = [{path:"",component:WelcomeComponent},
                         {path:"adminchoosingurl",component:AdminchoosingpageComponent},
                         {path:"adminviewdoctor",component:AdminviewdoctorComponent},
                         {path:"admineditdoctor/:doctorId",component:DoctoradmineditpageComponent},
+                        {path:"patientchoosingdoctor",component:PatientChoosingDoctorComponent},
+                        {path:"patientlogin",component:PatientloginComponent},
+                        {path:"patientchoosing",component:PatientChoosingComponent},
+                        {path:"patientdetailsByID",component:PatientDetailsByIdComponent},
 ];
 
 

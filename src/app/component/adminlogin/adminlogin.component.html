@@ -1,21 +1,47 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  
+  <a class="navbar-brand" routerLink="/"> <b>EDUBRIDGE HOSPITALS</b></a>
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto"></ul>
+
+   
+  </div>
+</nav>
+
 <div class="container mt-5">
-    <div class="justify-content-center">
-      <div class="col-md-6">
-        <div class="card p-4 shadow">
-          <div class="text-center mb-3">
-            <h1>Admin Login</h1>
-            <h6>Please enter your Username & Password</h6>
-            <form (ngSubmit)="onSubmit()" #adminLoginForm="ngForm">
-              <label for="username" class="form-label"><h4>Username</h4></label>
-              <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Username" required class="form-control mb-3">
-              <label for="password" class="form-label"><h4>Password</h4></label>
-              <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password" required class="form-control">
-              <button class="btn btn-success me-2" type="submit">Login</button>
-              <button class="btn btn-warning me-2" type="button" routerLink="/home">Cancel</button>
-            </form>
-          </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4 shadow">
+        <div class="text-center mb-3">
+          <h1>Login As Admin</h1>
+          <h6>Please enter your Username & Password</h6>
         </div>
+
+        <form #doctorloginForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="username" class="form-label"><h4>Admin Username</h4></label>
+            <input type="text" id="username" name="username" [(ngModel)]="username"
+              class="form-control" placeholder="Username" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label"><h4>Password</h4></label>
+            <input type="password" id="password" name="password" [(ngModel)]="password"
+              class="form-control" placeholder="Password" required>
+          </div>
+
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-success me-2" type="submit">Login</button>
+            <button class="btn btn-warning" type="reset" routerLink="/home">Reset</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
+</div>

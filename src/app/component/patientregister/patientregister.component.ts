@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { patient } from '../../../model/patient';
 import { PatientService } from '../../services/patient.service';
 import Swal from 'sweetalert2'; 
+import { DoctorService } from '../../services/doctor.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
  
 
@@ -16,7 +19,10 @@ export class PatientregisterComponent {
 
   patient = new patient();
 
-  constructor(private pateintService:PatientService) { }
+  sblock :boolean=false;
+  doctorData: any;
+
+  constructor(private pateintService:PatientService,private doctorservice:DoctorService,private router:Router) { }
     
 
   // registerPatient()
@@ -52,6 +58,10 @@ export class PatientregisterComponent {
         text: 'Patient registered successfully',
         icon: 'success',
         confirmButtonText: 'OK'
+        }).then(() => {
+          this.router.navigate(['']);
+        
+          
       })
     );
   },
@@ -61,5 +71,39 @@ export class PatientregisterComponent {
       });
     
     }
+
+
+    // viewDoctorDetails(doctorId: any) {
+
+    //   this.doctorService.getDoctorById(doctorId).subscribe(
+    //     (response: any) => {
+    //       if(response!=null)  {
+    //         this.sblock = true;
+    //         this.doctorData = response;
+    //         console.log(this.doctorData);
+    //       }
+    //     },
+    //     (error: any) => {
+    //       console.error('Error fetching doctor details:', error);
+    //     }
+    //   );
+  
+  
+    // }
+
+
+
+
+    //verification code
+
+    registerPatientVerification(form: NgForm) {
+      if (form.valid) {
+        console.log('Patient Registered Successfully', this.patient);
+        // You can add your API call or logic here
+      } else {
+        console.log('Form is invalid');
+      }
+    }
+
     
 }

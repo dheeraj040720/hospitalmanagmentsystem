@@ -1,4 +1,4 @@
- <p>doctorview works!</p>
+
 
 <h1>Welcome Doctor </h1> 
 
@@ -16,18 +16,18 @@
         <th>Action</th>
         
         </tr>
-        <tr *ngFor="let patientData of patientList | paginate:{itemsPerPage:count,currentPage:p}">
+        <tr *ngFor="let patientData of patientList" >     
 
-        <td>{{patientData.patientID}}</td>
-        <td>{{patientData.patientname}}</td>    
-        <td>{{patientData.age}}</td>
-        <td>{{patientData.bloodGroup}}</td> 
-        <td>  {{patientData.appointmentDate}} </td>
+        <td>{{patientData.patient.patientID}}</td>
+        <td>{{patientData.patient.patientname}}</td>    
+        <td>{{patientData.patient.age}}</td>
+        <td>{{patientData.patient.bloodGroup}}</td> 
+        <td>  {{patientData.patient.appointmentDate}} </td>
 
          <td>
-            <button (click)="viewPatientDetails(patientData.patientID)" >View Details</button>
-            <button (click)="updatePatient(patientData.patientID)">Diagonise</button>
-            <button (click)="deletePatient(patientData.patientID)">Delete</button>
+            <button (click)="viewPatientDetails(patientData.patient.patientID)" >View Details</button>
+            <button (click)="updatePatient(patientData.patient.patientID)">Diagonise</button>
+            <button (click)="deletePatient(patientData.patient.patientID)">Delete</button>
             <button class="btn btn-success mt-3" (click)="exportToPDF()" *ngIf="sblock" >
                 Export to PDF
               </button>
@@ -39,17 +39,6 @@
 
         </tr>
 </table> 
-
-
-
-<div class="text-right">
-
-    <pagination-controls (pageChange)="p=$event"></pagination-controls>
-
-</div>
-
-
-
 
 <div *ngIf="patientData">
     <h2>Patient Details</h2>
@@ -66,3 +55,16 @@
 
 
 </div>
+
+
+
+
+<!-- | paginate:{itemsPerPage:count,currentPage:p} -->
+
+
+<!-- 
+<div class="text-right">
+
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+</div> -->

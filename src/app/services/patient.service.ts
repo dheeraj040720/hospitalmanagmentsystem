@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { patient } from '../../model/patient';
+import { appointment } from '../../model/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class PatientService {
 
    url="http://localhost:8089/api/patient";
 
+   url1="http://localhost:8089/api/appointment";
+   
 
    registerPatient(patient:any){
 
@@ -44,6 +47,12 @@ export class PatientService {
 
 
 
+      loginPatient(patient : patient)
+      {
+        console.log(patient);
+        return this.httpClient.post(`${this.url}/loginPatient`,patient);
+      
+      }
 
 
       getAllPatients():Observable<patient>{
@@ -56,6 +65,7 @@ export class PatientService {
 
         })
         );
+
       }
 
 
@@ -63,6 +73,7 @@ export class PatientService {
 getPatientById(patientId:any)
 {
   return this.httpClient.get(`${this.url}/${patientId}`);
+
 }
 
 
@@ -86,6 +97,15 @@ getPatientById(patientId:any)
       }
 
 
+      deleteByAppointmentID(appointmentID:number):Observable<any>{
+
+        return from (
+          fetch(`${this.url1}/getappointmentafterdelete/${appointmentID}`,{
+            method:'DELETE',
+          }).then(res=>this.handleResponse(res))
+        );
+      }
+
 
 
 
@@ -102,5 +122,52 @@ getPatientById(patientId:any)
           )); 
         
         }
+
+
+
+     /*   createAppointment(patientID:any,doctorID:any,appointmens:any)
+        {
+
+              return from(
+          fetch(`${this.url1}/${patientID}/${doctorID}`,{
+
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(appointmens)
+
+          }).then(res=>this.handleResponse(res)
+          ));
+
       
+
+        }*/
+        createAppointment1(patientID:any,doctorID:any,appointment: appointment): Observable<any> {
+          console.log(typeof appointment);     
+          return this.httpClient.post(`${this.url1}/${patientID}/${doctorID}`, appointment);
+        }
+
+      
+
+        getAppointmentByDoctorID(doctorID:any){
+
+          return this.httpClient.get(`${this.url1}/getappointbydoctorId/${doctorID}`);
+        }
+
+
+        getAppointmentByPatientID(patientID:any){
+        
+          return this.httpClient.get(`${this.url1}/getappointbypatientID/${patientID}`);
+        }
+
+        getAppointmentById(appointmentid:any)
+        {
+            return this.httpClient.get(`${this.url1}/${appointmentid}`);
+        }
+        
+
+        checkExistingAppointment(patientID:any,doctorID:any,appointmentDate:any,appointmentTime:any): Observable<any> {
+
+          return this.httpClient.get(`${this.url1}/check?patientId=${patientID}&doctorId=${doctorID}&appointmentDate=${appointmentDate}&appointmentTime=${appointmentTime}`);
+        }
+
       }

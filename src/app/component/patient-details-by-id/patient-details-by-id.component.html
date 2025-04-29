@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>EDUBRIDGE Hospitals</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"> <b> EDUBRIDGE HOSPITALS </b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h3 class="mb-4 text-primary text-center">Patient Details</h3>
+
+        <!-- <div class="table-responsive" *ngIf="dblock">  -->
+            <!-- let appointment   -->
+            
+            <div class="table-responsive"  >
+
+ 
+            <table class="table table-bordered table-hover table-striped" id="patientDetailsTable">
+                <thead class="thead-dark">
+                    <tr >
+                        <th>Appointment ID</th>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                         <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Blood Group</th>
+                        <th>Appointment Date</th>
+                        <th>Appointment Time</th>
+                        <th>Prescription</th>
+                        <th>Doctor Fees</th>
+                        <th>Dosage</th> 
+                        <th>Export to PDF</th>
+                        <th>Delete Record</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patientinfo of patientAppointments">   
+                        <td>{{patientinfo.appointmentid}}</td>
+                        <td>{{patientinfo.patient.patientID}}</td>  
+                         <td>{{patientinfo.patient.patientname}}</td>
+                        <td>{{patientinfo.patient.age}}</td>
+                        
+                         <td>{{patientinfo.patient.patientgender}}</td>
+                        <td>{{patientinfo.patient.patientphoneNum}}</td>
+                        <td>{{patientinfo.patient.patientemail}}</td>
+                        <td>{{patientinfo.patient.patientaddress}}</td>
+                        <td>{{patientinfo.patient.bloodGroup}}</td>
+                        <td>{{patientinfo.appointmentDate}}</td> 
+                        <td>{{patientinfo.appointmentTime}}</td>
+
+                         <ng-container *ngIf="patientinfo.patient.patientPrescription; else noPrescription"> 
+                            
+                         <td>{{patientinfo.patient.patientPrescription}}</td>
+                        </ng-container>
+                        <ng-template #noPrescription>
+                            <span class="text-danger">Patient has not been diagnosed yet.</span>
+                          </ng-template>
+                        
+
+
+                          
+             
+
+
+                        <td>
+                            
+                                      
+                        <ng-container *ngIf="patientinfo.patient.doctorFees > 0; else noFees">
+
+                            {{patientinfo.patient.doctorFees}}
+                        
+                        </ng-container>
+                        
+                        <ng-template #noFees>
+                            <span class="text-danger">Patient has not been diagnosed yet.</span>
+                          </ng-template>
+                        
+                        </td>
+                     
+            
+                      
+
+                        <ng-container *ngIf="patientinfo.patient.patientDoasge;  else noDosage">   
+                        
+                        <td>{{patientinfo.patient.patientDoasge}}</td>
+                        </ng-container>
+
+                        <ng-template #noDosage>
+                            <span class="text-danger">Patient has not been diagnosed yet</span>
+                            </ng-template>
+                        <td>
+                          <button class="btn btn-success mt-3" (click)="exportToPDF(patientinfo.appointmentid)"  >
+                            Export to PDF
+                          </button>
+                        </td>
+                         <td><button class="btn btn-danger mt-3" (click)="deletePatient(patientinfo.appointmentid)">Delete Record</button></td> 
+           
+
+
+                       
+                     </tr> 
+                </tbody>
+            </table>
+        </div>
+
+         <div *ngIf="!dblock">
+            <p>No patient details available.</p>
+        </div> 
+    </div>
+</body>
+
+</html>

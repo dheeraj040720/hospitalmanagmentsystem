@@ -19,6 +19,10 @@ import { AdminloginComponent } from './component/adminlogin/adminlogin.component
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminchoosingpageComponent } from './component/adminchoosingpage/adminchoosingpage.component';
 import { DoctoradmineditpageComponent } from './component/doctoradmineditpage/doctoradmineditpage.component';
+import { PatientChoosingDoctorComponent } from './component/patient-choosing-doctor/patient-choosing-doctor.component';
+import { PatientloginComponent } from './component/patientlogin/patientlogin.component';
+import { PatientChoosingComponent } from './component/patient-choosing/patient-choosing.component';
+import { PatientDetailsByIdComponent } from './component/patient-details-by-id/patient-details-by-id.component';
 
 
 @NgModule({
@@ -36,6 +40,10 @@ import { DoctoradmineditpageComponent } from './component/doctoradmineditpage/do
     AdminloginComponent,
     AdminchoosingpageComponent,
     DoctoradmineditpageComponent,
+    PatientChoosingDoctorComponent,
+    PatientloginComponent,
+    PatientChoosingComponent,
+    PatientDetailsByIdComponent,
    
   ],
   imports: [

@@ -13,6 +13,9 @@ export class patient
     patientPrescription:string;
     doctorFees:number;
     patientDoasge:string;
+    username:string;
+    password:string;
+    appointmentTime:string;
 
     constructor()
     {
@@ -28,5 +31,8 @@ export class patient
         this.patientPrescription="";
         this.doctorFees=0;
         this.patientDoasge="";
+        this.username="";
+        this.password="";
+        this.appointmentTime="";
     }
 }

@@ -19,15 +19,26 @@ export class DoctorviewComponent implements OnInit {
   patientList:any;
   updateBlock:boolean=false;
   canViewDetails: boolean = false; // Flag to control the visibility of the details section
+  doctorId:any;
   ngOnInit(): void {
     // Initialization logic can go here
-    this.patientService.getAllPatients().subscribe(
-      (response:any) => {
-        this.patientList = response;
-        console.log(response);
-      });
+    // this.patientService.getAllPatients().subscribe(
+    //   (response:any) => {
+    //     this.patientList = response;
+    //     console.log(response);
+
+    //   });
+    this.doctorId=sessionStorage.getItem('doctorId');
  
+      this.patientService.getAppointmentByDoctorID(this.doctorId).subscribe(
+        (response : any) => {
+          this.patientList = response;
+          console.log(response);
+
+        }
+      );
   }
+
 
 
 

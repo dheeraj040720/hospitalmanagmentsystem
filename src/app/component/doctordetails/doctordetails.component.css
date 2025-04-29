@@ -1,7 +1,9 @@
 body {
     background-color: #e3f2fd;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
   }
+
   
   .card {
     width: 400px;
@@ -13,7 +15,7 @@ body {
   
   .card-title {
     color: #007bff;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
   }
   
