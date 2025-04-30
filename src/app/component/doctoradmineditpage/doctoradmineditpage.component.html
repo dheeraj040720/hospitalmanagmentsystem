@@ -12,111 +12,99 @@
 
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"> <b> EDUBRIDGE HOSPITALS </b></a>
-    <div class="carousel-caption">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><b>EDUBRIDGE HOSPITALS</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-          </ul>
-        
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    
-    </nav>
+  <!-- Main Registration Form -->
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4">
+      <h5 class="card-title mb-4">Doctor Update Form</h5>
   
-  
-    <div class="container mt-5 mb-5 d-flex justify-content-center">
-      <div class="card px-3 py-4">
-        <div class="card-body">
-          <h5 class="card-title mb-3">Doctor Registration</h5>
+
     
           <form #doctordetailsForm="ngForm" (ngSubmit)="updateDoctor()">
     
             <div *ngIf="doctorObject">
             <div class="form-group">
                 
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Doctor Name"
-                name="doctorname"
-                id="doctorname"
-                [(ngModel)]="doctorObject.doctorName"
-              />
+              <input type="text" class="form-control" placeholder="Doctor Name" name="doctorname" id="doctorname"
+              [(ngModel)]="doctorObject.doctorName" #doctorname="ngModel" required minlength="3"
+              [ngClass]="{'is-invalid': doctorname.invalid && (doctorname.dirty || doctorname.touched)}" />
+            <div *ngIf="doctorname.invalid && (doctorname.dirty || doctorname.touched)" class="invalid-feedback">
+              <div *ngIf="doctorname.errors?.['required']">Doctor name is required.</div>
+              <div *ngIf="doctorname.errors?.['minlength']">Minimum 3 characters required.</div>
+            </div>
+            
+              
             </div>
     
             <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Specialization"
-                name="doctorspecialization"
-                id="doctorspecialization"
-                [(ngModel)]="doctorObject.doctorSpecialization"
-              />
+              <input type="text" class="form-control" placeholder="Specialization" name="doctorspecialization"
+              id="doctorspecialization"    [(ngModel)]="doctorObject.doctorSpecialization"  #doctorspecialization="ngModel" required
+              [ngClass]="{'is-invalid': doctorspecialization.invalid && (doctorspecialization.dirty || doctorspecialization.touched)}" />
+            <div *ngIf="doctorspecialization.invalid && (doctorspecialization.dirty || doctorspecialization.touched)" class="invalid-feedback">
+              Specialization is required.
+            </div>
+              
             </div>
     
             <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Phone Number"
-                name="doctorphonenumber"
-                id="doctorphonenumber"
-                [(ngModel)]="doctorObject.doctorPhoneNumber"
-              />
+              <input type="text" class="form-control" placeholder="Phone Number" name="doctorphonenumber"
+              id="doctorphonenumber"   [(ngModel)]="doctorObject.doctorPhoneNumber" #doctorphonenumber="ngModel" required
+              pattern="^[0-9]{10}$"
+              [ngClass]="{'is-invalid': doctorphonenumber.invalid && (doctorphonenumber.dirty || doctorphonenumber.touched)}" />
+            <div *ngIf="doctorphonenumber.invalid && (doctorphonenumber.dirty || doctorphonenumber.touched)" class="invalid-feedback">
+              <div *ngIf="doctorphonenumber.errors?.['required']">Phone number is required.</div>
+              <div *ngIf="doctorphonenumber.errors?.['pattern']">Must be exactly 10 digits.</div>
+            </div>
+             
+           
             </div>
     
             <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Email"
-                name="doctoremail"
-                id="doctoremail"
-                [(ngModel)]="doctorObject.doctorEmail"
-              />
+              <input type="email" class="form-control" placeholder="Email" name="doctoremail" id="doctoremail"
+              [(ngModel)]="doctorObject.doctorEmail"  #doctoremail="ngModel" required
+              [ngClass]="{'is-invalid': doctoremail.invalid && (doctoremail.dirty || doctoremail.touched)}" />
+            <div *ngIf="doctoremail.invalid && (doctoremail.dirty || doctoremail.touched)" class="invalid-feedback">
+              <div *ngIf="doctoremail.errors?.['required']">Email is required.</div>
+              <div *ngIf="doctoremail.errors?.['email']">Invalid email format.</div>
+            </div>
+             
+             
             </div>
     
             <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Department"
-                name="doctordepartment"
-                id="doctordepartment"
-                [(ngModel)]="doctorObject.doctorDepartment"
-              />
+              <input type="text" class="form-control" placeholder="Department" name="doctordepartment" id="doctordepartment"
+              [(ngModel)]="doctorObject.doctorDepartment"  #doctordepartment="ngModel" required
+              [ngClass]="{'is-invalid': doctordepartment.invalid && (doctordepartment.dirty || doctordepartment.touched)}" />
+            <div *ngIf="doctordepartment.invalid && (doctordepartment.dirty || doctordepartment.touched)" class="invalid-feedback">
+              Department is required.
+            </div>
             </div>
     
            
     
     
-            <div class="d-flex justify-content-between mt-3">
-              <input
-                type="submit"
-                class="btn btn-primary confirm-button"
-                value="Submit"
-                id="submit"
-              />
-              <input
-                type="reset"
-                class="btn btn-secondary"
-                value="Reset"
-                id="reset"
-              />
-              </div>
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="btn btn-primary btn-block mr-2" [disabled]="doctordetailsForm.invalid">Submit</button>
+              <button type="reset" class="btn btn-outline-secondary btn-block ml-2">Reset</button>
             </div>
+
+            <!-- ng object closing tag -->
+            </div>
+
           </form>
         </div>
       </div>
-    </div>
+
+
+
+   
+</body>
+</html>

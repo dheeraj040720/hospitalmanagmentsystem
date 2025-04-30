@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { doctor } from '../../../model/doctor';
 import { Router } from '@angular/router';
 import { DoctorService } from '../../services/doctor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-doctorlogin',
@@ -18,37 +19,46 @@ export class DoctorloginComponent {
   constructor( private doctorService:DoctorService,private router: Router)  { }
 
 
-  loginDoctor(){
 
+  loginDoctor() {
     this.doctorService.loginDoctor(this.doctor).subscribe(
-      (response:any) => {
-      console.log(response);
-
-        if(response)  {
-          this.userId=response.doctorID;
-          sessionStorage.setItem('doctorId',this.userId);
-
-         this.router.navigate(['/doctorviewurl']);
-        } else{
-          alert("Invalid Doctor ID or Password");
-        //  this.router.navigate(['/doctorlogin']);
+      (response: any) => {
+        if (response) {
+          this.userId = response.doctorID;
+          sessionStorage.setItem('doctorId', this.userId);
+  
+          Swal.fire({
+            icon: 'success',
+            title: 'Login Successful',
+            text: 'Welcome back, Doctor!',
+            confirmButtonText: 'Continue',
+            confirmButtonColor: '#3085d6'
+          }).then(() => {
+            this.router.navigate(['/doctorviewurl']);
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: 'Invalid Doctor ID or Password',
+            confirmButtonText: 'Try Again',
+            confirmButtonColor: '#d33'
+          });
         }
       },
-      (error:any) => {
+      (error: any) => {
         console.error('Error fetching doctor details:', error);
-        alert("Invalid Doctor ID or Password");
-      //  this.router.navigate(['/doctorlogin']);
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text: 'Invalid Doctor ID or Password',
+          confirmButtonText: 'Try Again',
+          confirmButtonColor: '#d33'
+        });
       }
-
-
-          
-
-
     );
-
-
-
   }
+
 }
 
 

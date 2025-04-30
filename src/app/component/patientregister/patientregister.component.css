@@ -1,100 +1,38 @@
+/* patient-registration.component.css */
+
 body {
-  background-color: #f1f4f8;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
 }
 
-.navbar {
+.form-card {
   width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-}
-
-.container {
-  margin-top: 100px; /* Because navbar is fixed */
-}
-
-.card {
-  width: 400px;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-}
-
-.card-title {
-  text-align: center;
-  font-size: 1.6rem;
-  color: #007bff;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 15px;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 
 .form-control {
   border-radius: 8px;
-  padding: 8px 12px;
-  border: 1px solid #ced4da;
-  font-size: 0.95rem;
+  padding: 10px 14px;
+  font-size: 15px;
 }
 
 .form-control:focus {
   border-color: #007bff;
-  box-shadow: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-/* Validation styles */
-input.ng-invalid.ng-touched,
-textarea.ng-invalid.ng-touched,
-select.ng-invalid.ng-touched {
-  border-color: #dc3545;
+.invalid-feedback {
+  font-size: 0.875rem;
 }
 
-input.ng-valid.ng-touched,
-textarea.ng-valid.ng-touched,
-select.ng-valid.ng-touched {
-  border-color: #28a745;
-}
-
-.text-danger {
-  font-size: 0.8rem;
-  margin-top: 3px;
-  color: #dc3545;
-}
-
-/* Buttons */
-.btn-primary, .btn-secondary {
-  border-radius: 8px;
+button {
   width: 48%;
+  border-radius: 6px;
 }
 
-.confirm-button {
-  width: 48%;
-}
-
-input[type="submit"]:disabled {
-  background-color: #6c757d;
-  border-color: #6c757d;
-  cursor: not-allowed;
-}
-
-/* Animation for invalid */
-input.ng-invalid.ng-touched {
-  animation: shake 0.2s 2;
-}
-
-@keyframes shake {
-  0% { margin-left: 0rem; }
-  25% { margin-left: 0.2rem; }
-  50% { margin-left: -0.2rem; }
-  75% { margin-left: 0.2rem; }
-  100% { margin-left: 0rem; }
+h4 {
+  font-weight: 600;
+  color: #333;
 }

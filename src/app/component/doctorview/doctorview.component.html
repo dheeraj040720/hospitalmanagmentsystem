@@ -1,70 +1,83 @@
+<!-- patient-registration.component.html -->
+<!doctype html>
+<html lang="en">
 
-
-<h1>Welcome Doctor </h1> 
-
-
-
-<h2>Patient Details</h2>
-
-<table border="1" cellspacing="0" cellpadding="5">
-    <tr>
-        <th>Patient ID</th>
-        <th>Patient Name</th>
-        <th>Patient Age</th>
-        <th>Patient BLOOD TYPE</th>
-        <th>Appointment Date</th>
-        <th>Action</th>
-        
-        </tr>
-        <tr *ngFor="let patientData of patientList" >     
-
-        <td>{{patientData.patient.patientID}}</td>
-        <td>{{patientData.patient.patientname}}</td>    
-        <td>{{patientData.patient.age}}</td>
-        <td>{{patientData.patient.bloodGroup}}</td> 
-        <td>  {{patientData.patient.appointmentDate}} </td>
-
-         <td>
-            <button (click)="viewPatientDetails(patientData.patient.patientID)" >View Details</button>
-            <button (click)="updatePatient(patientData.patient.patientID)">Diagonise</button>
-            <button (click)="deletePatient(patientData.patient.patientID)">Delete</button>
-            <button class="btn btn-success mt-3" (click)="exportToPDF()" *ngIf="sblock" >
-                Export to PDF
-              </button>
-
-        </td> 
-
-
-
-
-        </tr>
-</table> 
-
-<div *ngIf="patientData">
-    <h2>Patient Details</h2>
-    <p> Patient ID: {{patientData.patientID}}</p>
-    <p> Patient Name: {{patientData.patientname}}</p>
-    <p> Patient Age: {{patientData.age}}</p>
-    <p> Patient Blood Group: {{patientData.bloodGroup}}</p>
-    <p> Patient Appointment Date: {{patientData.appointmentDate}}</p>
-    
-
+<head>
+  <meta charset="UTF-8">
+  <title>EDUBRIDGE Hospitals</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
  
+</head>
 
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><b>EDUBRIDGE HOSPITALS</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+<div class="doctor-dashboard container py-5">
+  <div class="text-center mb-5">
+    <h1 class="display-4 text-primary">Welcome Doctor</h1>
+    <h2 class="h4 text-secondary">Patient Details</h2>
+  </div>
 
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered shadow-sm bg-white rounded">
+      <thead class="thead-dark">
+        <tr>
+          <th>Patient ID</th>
+          <th>Patient Name</th>
+          <th>Age</th>
+          <th>Blood Type</th>
+          <th>Appointment Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patientData of patientList">
+          <td>{{ patientData.patient.patientID }}</td>
+          <td>{{ patientData.patient.patientname }}</td>
+          <td>{{ patientData.patient.age }}</td>
+          <td>{{ patientData.patient.bloodGroup }}</td>
+          <td>{{ patientData.patient.appointmentDate }}</td>
+          <td>
+            <div class="btn-group" role="group">
+              <button class="btn btn-info btn-sm" (click)="viewPatientDetails(patientData.patient.patientID)">
+                View
+              </button>
+              <button class="btn btn-warning btn-sm" (click)="updatePatient(patientData.patient.patientID)">
+                Diagnose
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deletePatient(patientData.patient.patientID)">
+                Delete
+              </button>
+            </div>
+            <button
+              class="btn btn-success btn-sm mt-2"
+              *ngIf="sblock"
+              (click)="exportToPDF()"
+            >
+              Export PDF
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-
+  <!-- Patient Details Section -->
+  <div class="card mt-5 shadow-sm" *ngIf="patientData">
+    <div class="card-body">
+      <h4 class="card-title text-primary">Patient Full Details</h4>
+      <p><strong>Patient ID:</strong> {{ patientData.patientID }}</p>
+      <p><strong>Name:</strong> {{ patientData.patientname }}</p>
+      <p><strong>Age:</strong> {{ patientData.age }}</p>
+      <p><strong>Blood Group:</strong> {{ patientData.bloodGroup }}</p>
+      <p><strong>Appointment Date:</strong> {{ patientData.appointmentDate }}</p>
+    </div>
+  </div>
 </div>
-
-
-
-
-<!-- | paginate:{itemsPerPage:count,currentPage:p} -->
-
-
-<!-- 
-<div class="text-right">
-
-    <pagination-controls (pageChange)="p=$event"></pagination-controls>
-
-</div> -->

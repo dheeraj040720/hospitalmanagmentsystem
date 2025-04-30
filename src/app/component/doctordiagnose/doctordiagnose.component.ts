@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientService } from '../../services/patient.service';
 import { patient } from '../../../model/patient';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-doctordiagnose',
@@ -28,19 +29,43 @@ patientList:any;
 
 }
 
+updatePatient() {
 
-updatePatient()
-{
-this.patientservice.updatePatientById(this.patientId,this.patientObject).subscribe((response:any)=>{
-  console.log(response);
-  alert("Patient Updated Successfully");
-  this.router.navigate(['doctorviewurl']);
 
+
+
+
+
+  this.patientservice.updatePatientById(this.patientId, this.patientObject).subscribe(
+    (response: any) => {
+      console.log(response);
+      Swal.fire({
+        icon: 'success',
+        title: 'Updated!',
+        text: 'Patient updated successfully',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3085d6'
+      }).then(() => {
+        this.router.navigate(['doctorviewurl']);
+      });
+    },
+    (error) => {
+      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Update Failed',
+        text: 'Something went wrong while updating the patient!',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#d33'
+      });
+    }
+  );
 }
 
-)
 
-}
+
+
+
 viewPatientDetails(patientId: any) {
   // Initialization logic can go here
   this.patientservice.getPatientById(patientId).subscribe(

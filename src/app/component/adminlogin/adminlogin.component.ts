@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-adminlogin',
@@ -17,14 +18,29 @@ onSubmit() {
   const adminUsername = 'admin';
   const adminPassword = 'admin';
 
-  if (this.username === adminUsername && this.password === adminPassword) {
-    alert('Login successful!');
-    this.router.navigate(['/adminchoosingurl']); // Redirect to admin dashboard
-  } else {
-    alert('Invalid username or password');
+ 
+    if (this.username === adminUsername && this.password === adminPassword) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Successful',
+        text: 'Welcome back, Admin!',
+        confirmButtonText: 'Continue',
+        confirmButtonColor: '#3085d6'
+      }).then(() => {
+        this.router.navigate(['/adminchoosingurl']);
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: 'Invalid username or password',
+        confirmButtonText: 'Try Again',
+        confirmButtonColor: '#d33'
+      });
+    }
   }
 }
-}
+
 
 
 

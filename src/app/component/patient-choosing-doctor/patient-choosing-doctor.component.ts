@@ -74,7 +74,7 @@ this.patientService.checkExistingAppointment(this.patientId,doctorID,this.appoin
       (response: any) => {
         console.log('Appointment created successfully:', response);
         alert("Appointment Created Successfully");
-        this.router.navigate(['']);
+        this.router.navigate(['patientchoosing']);
         
       },
       (error: any) => {

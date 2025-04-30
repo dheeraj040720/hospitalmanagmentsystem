@@ -1,27 +1,95 @@
-<p>doctordiagnose works!</p>
+<!-- patient-registration.component.html -->
+<!doctype html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <title>EDUBRIDGE Hospitals</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="Untitled-2.css"> -->
+</head>
 
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><b>EDUBRIDGE HOSPITALS</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <div class="container my-5">
+    <div class="card shadow-lg p-4 bg-light">
+      <h2 class="text-center text-primary mb-4">Patient Diagnosis</h2>
+  
+      <form #updateForm="ngForm" (ngSubmit)="updatePatient()" novalidate>
+        <div *ngIf="patientObject" class="mb-4">
+          <div class="row">
+            <div class="col-md-6 mb-2"><strong>Patient ID:</strong> {{ patientObject.patientID }}</div>
+            <div class="col-md-6 mb-2"><strong>Name:</strong> {{ patientObject.patientname }}</div>
+            <div class="col-md-6 mb-2"><strong>Age:</strong> {{ patientObject.age }}</div>
+            <div class="col-md-6 mb-2"><strong>Blood Group:</strong> {{ patientObject.bloodGroup }}</div>
+            <div class="col-md-6 mb-2"><strong>Appointment Date:</strong> {{ patientObject.appointmentDate }}</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="diagonise">Diagnosis</label>
+          <input
+            type="text"
+            class="form-control"
+            id="diagonise"
+            name="diagonise"
+            placeholder="Enter Diagnosis"
+            [(ngModel)]="patientObject.patientDoasge"
+            #diagnose="ngModel"
+            required
+          />
+          </div>
+            <div *ngIf="diagnose.invalid && (diagnose.dirty || diagnose.touched)" class="invalid-feedback">
+                Diagnosis is required
+        </div>
+  
+        <div class="form-group">
+          <label for="prescription">Prescription</label>
+          <input
+            type="text"
+            class="form-control"
+            id="prescription"
+            name="patientPrescription"
+            placeholder="Enter Prescription"
+            [(ngModel)]="patientObject.patientPrescription"
+            #prescription="ngModel"
+            required
+          />
+          </div>
+            <div *ngIf="prescription.invalid && (prescription.dirty || prescription.touched)" class="invalid-feedback">
+                Prescription is required
+        </div>
+  
+        <div class="form-group">
+          <label for="fees">Doctor's Fees</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fees"
+            name="doctorFees"
+            placeholder="Enter Fees"
+            [(ngModel)]="patientObject.doctorFees"
+            #fees="ngModel"
+            required
+          />
+          </div>
+            <div *ngIf="fees.invalid && (fees.dirty || fees.touched)" class="invalid-feedback">
+                Fees is required
+        </div>
+  
+        <div class="text-center mt-4">
+          <input type="submit" class="btn btn-success px-4" value="Update Patient"  [disabled]="!updateForm.valid"/>
+        </div>
 
- 
-<form #updateForm="ngForm" (ngSubmit)="updatePatient()">
-<h2>Patient Details</h2>
-
-<div *ngIf="patientObject">
-    <p> patientID: {{patientObject.patientID}}  </p>
-    <p> patient name: {{patientObject.patientname}}</p>
-    <p> patient age: {{patientObject.age}}</p>
-    <p> patient blood group: {{patientObject.bloodGroup}}</p>
-    <p>   Patient Appointment Date: {{patientObject.appointmentDate}}</p>
-
+        </form>
     </div>
-
-<div *ngIf="patientObject">
-<input type="text" placeholder="Enter Diagonise" name="diagonise" [(ngModel)]="patientObject.patientDoasge" required>
-<input type="text" placeholder="Enter Patient dosage" name="patientPrescription" [(ngModel)]="patientObject.patientPrescription" required>
-<input type="text" placeholder="Enter Doctor fees" name="doctorFees" [(ngModel)]="patientObject.doctorFees" required>
-<input type="submit" value="Update Patient">
-
-</div>
-
-</form>
-
+  </div>
+  </body>

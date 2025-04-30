@@ -4,6 +4,7 @@ import jsPDF from 'jspdf';
 import { Router } from '@angular/router';
 import { patient } from '../../../model/patient';
 import { appointment } from '../../../model/appointment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-patient-details-by-id',
@@ -100,17 +101,43 @@ export class PatientDetailsByIdComponent  implements OnInit{
 
 
 
-
   deletePatient(appointmentid: any) {
-  
-    this.patientService.deleteByAppointmentID(appointmentid).subscribe(
-      (response: any) => {
-        this.router.navigate(['']);
-        console.log('Patient deleted successfully:', response);
-        // Optionally, refresh the patient list or navigate to another page
-        
-      } );
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This action cannot be undone!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.patientService.deleteByAppointmentID(appointmentid).subscribe(
+          (response: any) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Deleted!',
+              text: 'Patient record has been deleted.',
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#3085d6'
+            }).then(() => {
+              this.router.navigate(['']);
+            });
+          },
+          (error) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Deletion Failed',
+              text: 'An error occurred while deleting the patient record.',
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#d33'
+            });
+          }
+        );
+      }
+    });
+  }
     
 
 
